@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Bansari Luxuria</h1>
+        </div>
+
+        
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+           
+
+            <div class="name">
+                Bansari Luxuria
+            </div>
+            <div class="job">
+               Profile
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile" class="active">Profile</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a href="{% url 'back' %}">Back</a>
+                <hr align="center">
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+    
+    <!-- Main -->
+    <div class="main">
+        <h2>PROFILE</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{msg}}
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="{{data.propic.url}}" alt="" width="130" height="130" style="border-radius: 50px;"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="file" placeholder="Image Upload" name="propic"></td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td><input type="text" placeholder="Name" name="name" value="{{data.name}}"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td><input type="text" placeholder="Email" name="email" value={{data.email}} disabled></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td><input type="text" placeholder="Address" name="address" value="{{data.address}}"  ></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Old Password</td>
+                            <td>:</td>
+                            <td><input type="password" placeholder="Passowrd" name="password"  value="" ></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>New Passowrd</td>
+                            <td>:</td>
+                            <td><input type="password" placeholder="New Passowrd" name="newpassword"   value=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>New Conform password</td>
+                            <td>:</td>
+                            <td><input type="password" placeholder="New Conform Passowrd" name="newcpassword"  value="" ></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" class="button">Update</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            </div>
+        </div>
+
+        
+    </div>
+    <!-- End -->
+</body>
+</html>

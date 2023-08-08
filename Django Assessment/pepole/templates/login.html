@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/Loging.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <section class="container">
+    <div class="span-6">
+      <div class="login">
+        <h1>Login!</h1>
+        <div class="login-content">
+          <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{msg}}
+          <label id="emailLabel">Please enter a valid email</label>
+          <input id="email" placeholder="Email" name="email"/>
+          <label id="passwordLabel">Please enter your password</label>
+          <input type="password" id="password" placeholder="Password" name="password" /><br>
+          <a href="#"> Forgot Password</a><br>
+  
+          <input type="submit" value="Login">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="span-6">
+        <div class="message">
+        <span class="first">Bansari </span>
+        {% comment %} <span class="second">is</span> {% endcomment %}
+        <span class="third">Luxuria</span>
+      </div> 
+  </section>
+
+
+<script>
+  $("#email").focus(function(){
+    $("#emailLabel").addClass("show");
+    $(this).val('')
+  }).blur(function(){
+    $("#emailLabel").removeClass("show");
+  });
+  
+  $("#password").focus(function(){
+    $("#passwordLabel").addClass("show");
+    $(this).val('')
+  }).blur(function(){
+    $("#passwordLabel").removeClass("show");
+  });
+
+</script>
+
+</body>
+</html>
+
+
+

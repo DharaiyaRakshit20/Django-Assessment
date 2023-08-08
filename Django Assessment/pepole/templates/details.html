@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+ 
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+          {% comment %} <img data-image="black" src="images/black.png" alt="">
+          <img data-image="blue" src="images/blue.png" alt=""> {% endcomment %}
+          <img data-image="red" class="active" src="{{details.propic.url}}" alt="" height="500px" width="200px">
+        </div>
+       
+       
+        <!-- Right Column -->
+        <div class="right-column">
+       
+          <!-- Product Description -->
+          <div class="product-description">
+            <h1>{{details.name}}</h1>
+            <p>{{details.address}}</p>
+            <h4>{{details.email}}</h4>
+            <a href="{% url 'back' %}">Back To Page</a>
+          </div>
+       
+
+      </main>
+<script>
+      $(document).ready(function() {
+ 
+        $('.color-choose input').on('click', function() {
+            var headphonesColor = $(this).attr('data-image');
+       
+            $('.active').removeClass('active');
+            $('.left-column img[data-image = ' + headphonesColor + ']').addClass('active');
+            $(this).addClass('active');
+        });
+       
+      });
+</script>
+</body>
+</html>

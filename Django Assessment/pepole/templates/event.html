@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+ 
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+          <img data-image="black" src="images/black.png" alt="">
+          <img data-image="blue" src="images/blue.png" alt="">
+          <img data-image="red" class="active" src="images/red.png" alt="">
+        </div>
+       
+       
+        <!-- Right Column -->
+        <div class="right-column">
+       
+          <!-- Product Description -->
+          <div class="product-description">
+            <h1>Headphones</h1>
+            <h4>Date: </h4>
+            <h4>Time: </h4>
+            <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+            <a href="">Back To Page</a>
+          </div>
+       
+
+      </main>
+<script>
+      $(document).ready(function() {
+ 
+        $('.color-choose input').on('click', function() {
+            var headphonesColor = $(this).attr('data-image');
+       
+            $('.active').removeClass('active');
+            $('.left-column img[data-image = ' + headphonesColor + ']').addClass('active');
+            $(this).addClass('active');
+        });
+       
+      });
+</script>
+</body>
+</html>

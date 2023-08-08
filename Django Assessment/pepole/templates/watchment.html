@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/member.css' %}">
+</head>
+<body>
+<center>
+<h1 class="h1">Society Watchmen</h1>
+</center>
+<center>
+    <a href="{% url 'add_watchmen' %}"><button type="button" style="background-color: black; color:white; padding:10px 15px 10px 15px; border-radius: 30px;">Add  Watchmen</button></a>
+    </center>
+    <p>{{msg}}</p>
+<div class="row">
+  {% for i in  watchmen_data%}
+  <div class="column">
+    <div class="card">
+      <center>
+      <img src="{{i.w_propic.url}}" alt="Jane" width="200px" height="200px"></center>
+      <div class="container">
+        <h2>{{i.name}}</h2>
+        <p class="title">Society Watchmen</p>
+        <p class="address">{{i.gat_no}}</p>
+        <p class="address">{{i.mobile}}</p>
+        <p>{{i.email}}</p>
+        <p><a href="{% url 'Watchmen_details' i.id %}"><button class="button">Details</button></a></p>
+        <p><a href="{% url 'delete' i.id %}"><button class="button">Delete</button></a></p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Loging.css' %}">
+</head>
+<style>
+    
+
+</style>
+<body name="index_body">
+    <center>
+    <h1 class="h1">Bansari Luxuria</h1>
+
+    <a href="{% url 'profile' %}" >
+        <section class="section">
+            <h1>My Profile</h1>
+        </section>
+    </a>
+    
+    <a href="{% url 'members' %}" >
+        <section class="section">
+            <h1>Society Members</h1>
+        </section>
+    </a>
+
+    <a href="{% url 'watchmen' %}" >
+        <section class="section">
+            <h1>Society Watchmen</h1>
+         </section>
+    </a>
+
+    <a href="{% url 'show_notice' %}" >
+        <section class="section">
+            <h1>Notice</h1>
+        </section>
+    </a>
+
+    <a href="{% url 'event' %}" >
+        <section class="section">
+            <h1>Event</h1>
+        </section>
+    </a>
+    <a href="{% url 'logout' %}" >
+        <section class="section">
+            <h1>Logout</h1>
+        </section>
+    </a>
+    </center>
+</body>
+</html>

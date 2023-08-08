@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/member.css' %}">
+</head>
+<body>
+<center>
+<h1 class="h1">Society Event</h1>
+</center>
+<center>
+    <a href="{% url 'add_event' %}"><button type="button" style="background-color: black; color:white; padding:10px 15px 10px 15px; border-radius: 30px;">Add  Event</button></a>
+    </center>
+    <p>{{msg}}</p>
+<div class="row">
+  {% for i in  all_event%}
+  <div class="column">
+    <div class="card">
+      <center>
+      <img src="{{i.E_images.url}}" alt="Jane" width="200px" height="200px"></center>
+      <div class="container">
+        <h2>{{i.E_name}}</h2>
+        <p class="address">{{i.E_date}}</p>
+        <p>{{i.E_time}}</p>
+        <p><a href="{% url 'Event_details' i.id %}"><button class="button">Details</button></a></p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% comment %} <div class="column">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Art Director</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div> {% endcomment %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/Loging.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <section class="container">
+    <div class="span-6">
+      <div class="login">
+        <h1>Login!</h1>
+        <form action="{% url 'otp' %}" method="post">
+          {% csrf_token %}
+          {{msg}}
+        <div class="login-content">
+          <label id="emailLabel">Please enter OTP</label>
+          <input id="email" placeholder="OTP"  name="otp"/>
+  
+          <input type="submit" value="Submit">
+  
+        </div>
+      </form>
+      </div>
+    </div>
+    <div class="span-6">
+        <div class="message">
+        <span class="first">Bansari </span>
+        {% comment %} <span class="second">is</span> {% endcomment %}
+        <span class="third">Luxuria</span>
+      </div> 
+  </section>
+
+
+<script>
+  $("#email").focus(function(){
+    $("#emailLabel").addClass("show");
+    $(this).val('')
+  }).blur(function(){
+    $("#emailLabel").removeClass("show");
+  });
+  
+  $("#password").focus(function(){
+    $("#passwordLabel").addClass("show");
+    $(this).val('')
+  }).blur(function(){
+    $("#passwordLabel").removeClass("show");
+  });
+
+</script>
+
+</body>
+</html>
+
+
+
