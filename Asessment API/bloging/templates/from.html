@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Form</title>
+</head>
+<body>
+    <div >
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            {{msg}}
+            <h2>Blog</h2>
+            <input type="text" name="blog" placeholder="Blog Name" style="width: 100%; padding: 10px;">
+            <h2>Content</h2>
+            <textarea name="contant" id="" cols="30" rows="5" placeholder="Contant" style="width: 100%; "></textarea>
+            <center>
+            <button type="submit" style="margin-top: 20px; padding: 15px 35px 15px 35px; background-color: black; color: white; border:3px solid red; border-radius: 25px;">Submit</button>
+        </center>
+        </form>
+    </div>
+</body>
+</html>
